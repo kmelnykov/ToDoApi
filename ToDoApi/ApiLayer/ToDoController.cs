@@ -1,58 +1,73 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebApplication1.Model;
+using WebApplication1.Services;
 
-namespace TodoApi.Controllers;
-
-[Route("api/[controller]")]
 [ApiController]
-public class TodoItemsController : ControllerBase
+[Route("api/[controller]")]
+public class ToDoController(IToDoService toDoService) : ControllerBase
 {
-    private readonly ToDoContext _context;
-
-    public TodoItemsController(ToDoContext context)
+    [HttpGet]
+    public async Task<ActionResult<List<ToDoItem>>> GetAllItems()
     {
-        _context = context;
+        var items = await toDoService.GetAllItems();
+        return Ok(items);
     }
     
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<ToDoItem>>> GetTodoItems()
+    [HttpGet("overdue")]
+    public async Task<ActionResult<List<ToDoItem>>> GetOverdueItems()
     {
-        return await _context.ToDoItems.ToListAsync();
+        var overdueItems = await toDoService.GetOverdueItems();
+        return Ok(overdueItems);
+    }
+    
+    [HttpGet("highpriority")]
+    public async Task<ActionResult<List<ToDoItem>>> GetHighPriorityItems()
+    {
+        var highPriorityItems = await toDoService.GetHighPriorityItems();
+        return Ok(highPriorityItems);
+    }
+    
+    [HttpGet("recurring")]
+    public async Task<ActionResult<List<ToDoItem>>> GetRecurringItems()
+    {
+        var recurringItems = await toDoService.GetRecurringItems();
+        return Ok(recurringItems);
     }
     
     [HttpGet("{id}")]
-    public async Task<ActionResult<ToDoItem>> GetTodoItem(long id)
+    public async Task<ActionResult<ToDoItem>> GetToDoItemById(long id)
     {
-        var todoItem = await _context.ToDoItems.FindAsync(id);
-
-        if (todoItem == null)
+        var item = await toDoService.GetItemById(id);
+        if (item == null)
         {
             return NotFound();
         }
 
-        return todoItem;
+        return Ok(item);
     }
     
-    [HttpPost]
-    public async Task<ActionResult<ToDoItem>> PostTodoItem(ToDoItem toDoItem)
-    {
-        _context.ToDoItems.Add(toDoItem);
-        await _context.SaveChangesAsync();
+    [HttpPatch("{id}/complete")]
+    public async Task<ActionResult<ToDoItem>> MarkCompleted(long id)
+    { 
+        await toDoService.MarkCompleted(id);
         return Ok();
     }
     
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteTodoItem(long id)
+    [HttpPost]
+    public async Task<ActionResult<ToDoItem>> PostToDoItem(ToDoItem toDoItem)
     {
-        var todoItem = await _context.ToDoItems.FindAsync(id);
-        if (todoItem == null)
+        var createdItem = await toDoService.AddToDoItem(toDoItem);
+        return CreatedAtAction(nameof(GetToDoItemById), new { id = createdItem.Id }, createdItem);
+    }
+    
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteToDoItem(long id)
+    {
+        var success = await toDoService.DeleteToDoItem(id);
+        if (!success)
         {
             return NotFound();
         }
-
-        _context.ToDoItems.Remove(todoItem);
-        await _context.SaveChangesAsync();
 
         return NoContent();
     }

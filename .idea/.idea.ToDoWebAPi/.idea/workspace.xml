@@ -10,14 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d80ca0b7-5486-4649-a643-7ef992b281fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoApi/ApiLayer/ToDoController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoApi/Model/ToDoContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoApi/Model/ToDoItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoApi/ToDoApi.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoWebAPi.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoWebAPi/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoWebAPi/ToDoWebAPi.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoApi/Model/PriorityLevel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoApi/Model/RecurrenceInterval.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoApi/Services/IToDoService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoApi/Services/ToDoService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ToDoWebAPi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ToDoWebAPi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoApi/ApiLayer/ToDoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoApi/ApiLayer/ToDoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoApi/Model/ToDoContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoApi/Model/ToDoContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoApi/Model/ToDoItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoApi/Model/ToDoItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoWebAPi.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoWebAPi.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +38,7 @@
     <setting file="file://$PROJECT_DIR$/ToDoApi/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ToDoWebAPi/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
   <component name="KubernetesApiProvider"><![CDATA[{
   "isMigrated": true
 }]]></component>
@@ -55,7 +58,7 @@
   "keyToString": {
     ".NET Launch Settings Profile.WebApplication1: http.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -129,7 +132,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729958055234</updated>
-      <workItem from="1729958056471" duration="1715000" />
+      <workItem from="1729958056471" duration="8203000" />
     </task>
     <servers />
   </component>
