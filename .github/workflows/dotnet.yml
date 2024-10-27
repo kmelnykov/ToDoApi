@@ -11,15 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check branch naming convention
-      if: startsWith(github.ref_name, 'feature/')
-      run: echo "Branch name is valid"
-    - name: Fail if branch name is invalid
-      if: "!startsWith(github.ref_name, 'feature/')"
+    - name: Validate branch naming convention
+      if: github.event_name == 'pull_request' && !startsWith(github.head_ref, 'feature/')
       run: |
-        echo "Branch name must start with 'feature/'."
+        echo "Branch name for pull requests must start with 'feature/'."
         exit 1
-    
+
     - uses: actions/checkout@v4
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
