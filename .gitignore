@@ -3,3 +3,9 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+/.containers/todo-db
+/.vs/ToDoWebAPi/FileContentIndex
+/.vs/ToDoWebAPi/v17/DocumentLayout.json
+/.vs/ToDoWebAPi/v17/DocumentLayout.backup.json
+/.vs/ToDoWebAPi/config/applicationhost.config
+/.vs/ToDoWebAPi/v17/.suo
