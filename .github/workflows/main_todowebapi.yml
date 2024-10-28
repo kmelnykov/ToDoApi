@@ -22,13 +22,13 @@ jobs:
         run: dotnet build ToDoWebAPi/ToDoApi.csproj --configuration Release
 
       - name: Publish with dotnet
-        run: dotnet publish ToDoWebAPi/ToDoApi.csproj -c Release -o ${{github.workspace}}/myapp
+        run: dotnet publish ToDoWebAPi/ToDoApi.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: dotnet-app
-          path: ${{github.workspace}}/myapp
+          path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
     runs-on: ubuntu-latest
