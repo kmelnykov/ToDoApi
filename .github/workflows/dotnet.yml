@@ -24,10 +24,10 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Restore dependencies
-      run: dotnet restore ToDoApi.sln
+      run: dotnet restore ToDoWebAPi.sln
 
     - name: Build
-      run: dotnet build ToDoApi.sln --no-restore
+      run: dotnet build ToDoWebAPi.sln --no-restore
 
     - name: Test
-      run: dotnet test ToDoApi.sln --no-build --verbosity normal
+      run: dotnet test ToDoWebAPi.sln --no-build --verbosity normal
