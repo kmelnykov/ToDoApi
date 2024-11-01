@@ -13,6 +13,15 @@ public class ToDoController(IToDoService toDoService) : ControllerBase
         return Ok(items);
     }
     
+    [HttpGet("Name")]
+    public ActionResult GetName()
+    {
+        
+        return Ok("Виконав: Мельников Костянтин Валентинович \n" +
+                  "група: Студент 521 Групи \n" +
+                  "дата виконання: 01.11.24");
+    }
+    
     [HttpGet("overdue")]
     public async Task<ActionResult<List<ToDoItem>>> GetOverdueItems()
     {
